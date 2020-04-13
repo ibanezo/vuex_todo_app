@@ -15,14 +15,20 @@ const actions = {
     async fetchTodos({ commit }) {
         // we use await since we use async
         const response = await axios.get('https://jsonplaceholder.typicode.com/todos');
-        console.log(response.data);
         commit('setTodos', response.data);
+    },
+    async addTodo({ commit }, title) {
+      const response = await axios.post('https://jsonplaceholder.typicode.com/todos', {title, completed: false });
+      console.log(response.data);
+      commit('newTodo', response.data);
     }
 };
 
 const mutations = {
     // todos are response.data from actions commit
-    setTodos: (state, todos) => (state.todos = todos)
+    setTodos: (state, todos) => (state.todos = todos),
+    // we use unshift for putting the new todo first on the list
+    newTodo: (state, todo) => state.todos.unshift(todo)
 };
 
 export default {
