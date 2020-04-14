@@ -1,24 +1,19 @@
-# vuex_todo_app
+# Todo Application Vue JS & Vuex
 
-## Project setup
+This is an application created using Vue JS and Vuex library for the state management. 
+In this project i used the https://jsonplaceholder.typicode.com/todos API.
+
+## To start the project:
 ```
 npm install
-```
-
-### Compiles and hot-reloads for development
-```
 npm run serve
 ```
+# References:
+1. VueJs: https://vuejs.org/v2/guide/
+2. Vuex: https://vuex.vuejs.org/guide/
+3. Axios: https://github.com/axios/axios
+4. Traversy Media: https://www.youtube.com/user/TechGuyWeb/featured
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
