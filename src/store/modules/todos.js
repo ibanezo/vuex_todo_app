@@ -11,6 +11,7 @@ const getters = {
   allTodos: state => state.todos
 };
 
+// actions commit to mutations
 const actions = {
   async fetchTodos({ commit }) {
     // we use await since we use async
@@ -19,18 +20,20 @@ const actions = {
     );
     commit("setTodos", response.data);
   },
+
   async addTodo({ commit }, title) {
     const response = await axios.post(
       "https://jsonplaceholder.typicode.com/todos",
       { title, completed: false }
     );
-    console.log(response.data);
     commit("newTodo", response.data);
   },
+  
   async deleteTodo({ commit }, id) {
     await axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`);
     commit("removeTodo", id);
   },
+
   async filterTodos({ commit }, e) {
     // Get selected number
     const limit = parseInt(
@@ -39,15 +42,17 @@ const actions = {
     const response = await axios.get(
       `https://jsonplaceholder.typicode.com/todos?_limit=${limit}`
     );
+    // we use the same setTodos function
     commit("setTodos", response.data);
   },
+
   async updateTodo({ commit }, updTodo) {
     const response = await axios.put(`https://jsonplaceholder.typicode.com/todos/${updTodo.id}`, updTodo);
-    // console.log(response.data);
     commit("updateTodo", response.data);
   }
 };
 
+// mutations mutate the state
 const mutations = {
   // todos are response.data from actions commit
   setTodos: (state, todos) => (state.todos = todos),

@@ -14,6 +14,7 @@
 
 <script>
 import { mapActions } from "vuex";
+
 export default {
   name: "FilterTodos",
   methods: mapActions(["filterTodos"])
