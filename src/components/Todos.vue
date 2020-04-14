@@ -2,7 +2,10 @@
   <div>
     <h2>Todos</h2>
     <div class="todos">
-      <div v-for="todo in allTodos" v-bind:key="todo.id" class="todo">{{todo.title}}</div>
+      <div v-for="todo in allTodos" v-bind:key="todo.id" class="todo">
+        {{todo.title}}
+        <i @click="deleteTodo(todo.id)" class="fas fa-times"></i>
+        </div>
     </div>
   </div>
 </template>
@@ -14,7 +17,7 @@ export default {
   name: "Todos",
   methods: {
       // since we have more actions, we wrap these in curly braces with spread operator
-      ...mapActions(["fetchTodos"])
+      ...mapActions(["fetchTodos", "deleteTodo"])
   },
 
   // property for saying which getter we are going to use (array)
@@ -40,6 +43,13 @@ export default {
   border-radius: 5px;
   text-align: center;
   position: relative;
+  cursor: pointer;
+}
+i {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: #fff;
   cursor: pointer;
 }
 </style>
