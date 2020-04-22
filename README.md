@@ -3,6 +3,9 @@
 This is an application created using Vue JS and Vuex library for the state management. 
 In this project i used the https://jsonplaceholder.typicode.com/todos API.
 
+This represents a simple application for managing your tasks. You can add new task, mark one as finished and also remove exsisting task.
+There is filter options that is enabled for better presentation of the current tasks.
+
 ## To start the project:
 ```
 npm install
